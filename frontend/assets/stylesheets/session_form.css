@@ -1,0 +1,100 @@
+
+.form-container {
+  display: flex;
+  background-color: rgb(69,175,181);
+  height: 460px;
+  width: 400px;
+  box-shadow: 1px 1px 40px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  flex-direction: column;
+  align-items: center;
+  font-family: avenir;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-link {
+  text-transform: uppercase;
+  font-size: 25px;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.form {
+  padding-top: 20px;
+  border-top: 1px solid rgba(148, 148, 148, 0.445);
+  width: inherit;
+  margin-top: 10px;
+  outline: none;
+}
+
+.inactive {
+  color: rgba(126, 126, 126, 0.479);
+}
+
+.input {
+  width: 75%;
+  padding: 10px;
+  margin: 7px;
+  box-sizing: border-box;
+  color: grey;
+  border-radius: 10px;
+  outline: none;
+  font-family: avenir;
+}
+
+.submit {
+  color: azure;
+  cursor: pointer;
+  width: 60%;
+  font-family:avenir;
+
+  background-color:rgb(59, 140, 165);
+  border-color:rgb(59, 140, 165);
+  border-width:0px;
+  border-radius: 3px;
+
+  border-top-width:0px;
+  transition: 0.3s;
+  outline: none;
+
+}
+
+.logo {
+  margin-top: 30px;
+  color: whitesmoke;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: avenir;
+  text-shadow: 0px 0px 5px rgb(18, 17, 79);
+  margin-bottom: 30px;
+}
+
+ .submit:hover {
+  transition: 3s;
+  background-color: white;
+  color: #1764ef;
+}
+
+.hidden {
+  display: none;
+}
+
+#user-auth-errors {
+  position:absolute;
+  top: 40%;
+  left: 510px;
+  width: 400px;
+  box-sizing:border-box;
+  color:red;
+}
+
+.active-demo{
+  color: red;
+}
