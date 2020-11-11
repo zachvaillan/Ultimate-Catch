@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../../models/Post")
-const Region = require("../../models/Region")
+// const Region = require("../../models/Region")
 const passport = require("passport");
 const validatePostInput = require("../../validation/posts")
 // ObjectID = require('mongodb').ObjectID
