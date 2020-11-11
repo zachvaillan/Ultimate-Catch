@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PostIndexItem from './post_index_item';
 // import Map from '../map/map';
-import './post_index.css';
+// import './post_index.css';
 import post_index_item from './post_index_item';
 // import '../map/map.css';
 
