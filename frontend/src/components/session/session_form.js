@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import '../../../assets/stylesheets/session_form.css'
+import '../../assets/stylesheets/session_form.css'
 
 class SessionForm extends React.Component {
   constructor(props) {
