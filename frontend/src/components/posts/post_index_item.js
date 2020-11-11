@@ -88,4 +88,4 @@ class PostIndexItem extends React.Component{
     }
 }
 
-export default withRouter(PostIndexItem);
+export default PostIndexItem;
