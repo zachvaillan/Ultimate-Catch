@@ -1,0 +1,71 @@
+.NavBar {
+  /* border: 2px solid chartreuse; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  background-color: rgb(69,175,181);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  list-style-type: none;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  border-style: none;
+
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+
+  height: 45px;
+  align-items: center;
+}
+
+.last {
+  margin-right: 25px;
+}
+.nav-links {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.logo-img{
+  position: relative;
+  margin-top: 10px;
+  height: 57px;
+
+}
+
+
+.nav-links a:hover {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.logoutBtn {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  border: 0;
+  background-color: transparent;
+  margin-right: 25px;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+}
+
+.logoutBtn:hover {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}

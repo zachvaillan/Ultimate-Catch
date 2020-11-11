@@ -10,7 +10,7 @@ import MapContainer from './map/map_container';
 import PostsIndexContainer from './posts/posts_index_container';
 import PostFormContainer from './posts/post_form_container';
 import SplashPage from './splash/splash';
-// import FooterContainer from './footer/footer_container'
+import FooterContainer from './footer/footer_container'
 import Profile from './profile/profile'
 
 const App = () => (
