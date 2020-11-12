@@ -68,6 +68,7 @@ function Map(props){
             console.log("regions")
             console.log(props.regions[0])
             console.log(props.regions[0].posts)
+            let markers = []
             let marker = {}
             for(let i = 0;i<props.regions.length;i++){
                 console.log(props.regions.weather)
