@@ -35,14 +35,14 @@ class PostIndexItem extends React.Component{
 
         return(
             <div className="posts-idx-item">
-                
+
                 <div className="post-pic-and-likes">
                     <div className="post-pic-container">
                         <img className="post-pic" src={this.props.post.picture} />
                     </div>
                     <div className="likes-container">
                             <div className="like-heart">{heartIcon}</div>
-                            <div>
+                            <div className="like-count-container">
                                 <h3 className="like-count">{this.props.post.likes.length} likes</h3>
                             </div>
                     </div>   
