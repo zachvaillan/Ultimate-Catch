@@ -1,6 +1,6 @@
 import React from 'react';
-// import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from 'react-router-dom';
 
 class PostIndexItem extends React.Component{
@@ -28,10 +28,10 @@ class PostIndexItem extends React.Component{
             }
         });
 
-        // const heartIcon = liked ? 
-            // (<FontAwesomeIcon className="liked-heart" icon={faHeart} onClick={() => this.props.onUnlike(this.props.post._id)}/>)
-            // :
-            // (<FontAwesomeIcon className="heart" icon={faHeart} onClick={() => this.props.onLike(this.props.post._id)}/>);
+        const heartIcon = liked ? 
+            (<FontAwesomeIcon className="liked-heart" icon={faHeart} onClick={() => this.props.onUnlike(this.props.post._id)}/>)
+            :
+            (<FontAwesomeIcon className="heart" icon={faHeart} onClick={() => this.props.onLike(this.props.post._id)}/>);
 
         return(
             <div className="posts-idx-item">
@@ -70,7 +70,7 @@ class PostIndexItem extends React.Component{
 
 
                     <div className="likes-container">
-                        {/* <div className="like-heart">{heartIcon}</div> */}
+                        <div className="like-heart">{heartIcon}</div>
                         <div>
                             <h3 className="like-count">{this.props.post.likes.length} likes</h3>
                         </div>
@@ -80,7 +80,7 @@ class PostIndexItem extends React.Component{
 
                     <div className="comment-container">
                         <textarea className="comment-input" placeholder="Leave a comment!" onChange={this.handleUpdate("text")} type="text" />
-                        {/* <FontAwesomeIcon className="comment-icon" icon={faComment} onClick={() => this.props.onComment(this.props.post._id, this.state)}/> */}
+                        <FontAwesomeIcon className="comment-icon" icon={faComment} onClick={() => this.props.onComment(this.props.post._id, this.state)}/>
                     </div>
                 </div>
             </div>
@@ -88,4 +88,4 @@ class PostIndexItem extends React.Component{
     }
 }
 
-export default PostIndexItem;
+export default withRouter(PostIndexItem);
