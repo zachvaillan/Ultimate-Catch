@@ -7,13 +7,9 @@
     display: flex;
     font-family: "Open Sans", Arial, sans-serif;
     /* min-height: 60vh; */
-
-
-   
     background-color: #fafafa;
     color: #262626;
     width: 100%;
-    height: 550px;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 15px;
@@ -163,8 +159,14 @@
 
 .like-heart {
     font-size: 23px;
-
+    padding-right: 20px;
+    margin: auto;
 }
+
+.like-count-container{
+    margin: auto;
+}
+
 .liked-heart{
     color: red;
     cursor: pointer;
@@ -172,10 +174,8 @@
 }
 
 .comment-container{
-    
     display: flex;
-     
-
+    z-index: -1;
 }
 
 .comment-input {
