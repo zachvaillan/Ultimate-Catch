@@ -44,6 +44,11 @@
     0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
+.post-pic-and-likes{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
 
 .post-pic{
     width: 100%;
@@ -198,5 +203,5 @@
 }
 
 .post-pic-container{
-    width: 50%;
+    width: 100%;
 }
