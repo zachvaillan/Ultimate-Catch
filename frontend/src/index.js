@@ -6,13 +6,12 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import axios from 'axios';
 
-// We have not created this action yet, but will do so in the next step
 import { logout } from './actions/session_actions';
+import { fetchFish } from './actions/search_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
-  // If a returning user has a session token stored in localStorage
   if (localStorage.jwtToken) {
 
     // Set the token as a common header for all axios requests
@@ -38,10 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // If this is a first time user, start with an empty store
     store = configureStore({});
   }
+
+
+
+  //TEST
+  
+  window.axios = axios;
+  window.fetchFish = fetchFish;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  //TEST
+
+
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
 });
-
-window.axios = axios;
