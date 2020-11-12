@@ -24,9 +24,9 @@ const mapDispatchToProps = dispatch => {
     heartPost: post => dispatch(heartPost(post)),
     unheartPost: post => dispatch(unheartPost(post)),
     leaveComment: (postId, commentData) => dispatch(leaveComment(postId, commentData)),
-    fetchPostsByRegion: (regionId) => dispatch(fetchPostsByRegion(regionId)),
-    fetchRegions: () => dispatch(fetchRegions()),
-    fetchWeather: (lat, lng) => dispatch(fetchWeather(lat, lng)),
+    // fetchPostsByRegion: (regionId) => dispatch(fetchPostsByRegion(regionId)),
+    // fetchRegions: () => dispatch(fetchRegions()),
+    // fetchWeather: (lat, lng) => dispatch(fetchWeather(lat, lng)),
     fetchPost: (id) => dispatch(fetchPost(id))
   };
 };

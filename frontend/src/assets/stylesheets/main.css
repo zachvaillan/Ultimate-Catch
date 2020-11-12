@@ -16,23 +16,23 @@
 
 .sticky-map-container{
   position: fixed;
-  width: 820px;
+  width: 40vw;
   /* height: 475px; */
   /* margin-right: 40px; */
 
 }
 
 .posts-idx-main{
-  width: 820px;
+  width: 100%;
 }
 
 .posts-idx-main-container{
-  width: 820px;
+  width: 60vw;
   display: flex;
   justify-content: center;
 }
 
 .map-container{
-  width: 420px;    
+  width: 40vw;    
   border-right: 10px solid rgb(69,175,181);
 }
