@@ -7,8 +7,6 @@ import {
     InfoWindow,
 } from "@react-google-maps/api";
 import mapStyles from './mapStyles'
-import { formatRelative } from "date-fns";
-import { Link, withRouter } from 'react-router-dom';
 import './map.css';
 
 /// make sure to npm i -S @react-google-maps/api
@@ -32,13 +30,16 @@ let bool = false;
 function Map(props){
     console.log(props)
     const { isLoaded, loadError } = useLoadScript({
+        // googleMapsApiKey: "AIzaSyDTBgA_TduCfs3_9MRI6oze8px-uqTNtEo",
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries,
     })
     // [{ lat: 39.09423597068579, lng: -120.02614425979569, time: new Date() },
     // { lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() },
     //     { lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() }]
+    // const [markers, placeMarkers] = React.useState({});
     const [markers, placeMarkers] = React.useState([]);
+
     // if(props.regions.length> 0){
 
     //     useEffect(() => {
@@ -64,41 +65,24 @@ function Map(props){
             props.fetchPosts();
         }
         
+        // let markers = []
         if(props.regions.length > 0){
             console.log("regions")
             console.log(props.regions[0])
             console.log(props.regions[0].posts)
-            let markers = []
             let marker = {}
             for(let i = 0;i<props.regions.length;i++){
-                console.log(props.regions.weather)
-                if(props.regions.weather === undefined){
-                    console.log("wewrawerwerweR")
-                    let weatherVar = "not default"
-                    // let weatherVar = props.fetchWeather(props.regions[i].coordinates.lat, props.regions[i].coordinates.lng)
-                    console.log(weatherVar)
+                // console.log(props.regions.weather)
                     marker = {
                         lat: props.regions[i].coordinates.lat,
                         lng: props.regions[i].coordinates.lng,
                         time: new Date(),
                         region_id: props.regions[i]._id,
                         posts: props.regions[i].posts,
-                        weather: weatherVar
-                        //put arary of likes
-                        // weather: props.regions[i].weather
-                        // weather: props.fetchWeather(props.regions[i].coordinates.lat, props.regions[i].coordinates.lng)
+                        weather: props.regions[i].weather
                     }
-                }else{
-                    marker = {
-                        lat: props.regions[i].coordinates.lat,
-                        lng: props.regions[i].coordinates.lng,
-                        time: new Date(),
-                        region_id: props.regions[i]._id,
-                        posts: props.regions[i].posts,
-                        weather:"default"
-                    }
-                }
                 // console.log(marker)
+                // markers[marker.id] = marker 
                 markers.push(marker)
             }
         }
@@ -108,9 +92,9 @@ function Map(props){
     // markers.push({ lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() })
     // markers.push({ lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() })
     const [selected, setSelected] = React.useState(null);
-    const getWeather = (latitude, longitude) => {
-        props.fetchWeather(latitude, longitude)
-    }
+    // const getWeather = (latitude, longitude) => {
+    //     props.fetchWeather(latitude, longitude)
+    // }
 
     if(loadError){
         return "Error Loading Maps"
@@ -166,7 +150,19 @@ function Map(props){
             center={sanFran}
             options= {styles}
             // onClick={onMapClick}
-            >
+            >   
+            {/* {Object.keys(markers).forEach( marker =>
+                {
+                    <Marker
+                        key={markers[marker].region_id}
+                        position={{ lat: markers[marker].lat, lng: markers[marker].lng }}
+                    onClick={() => {
+                        setSelected(markers[marker]);
+                        markers[marker].mostLikedPost = mostLikedPost(markers[marker].region_id)
+                    }} />
+                }
+            )
+            } */}
                 {markers.map((marker) => (
                     <Marker
                         key={marker.region_id}
@@ -189,9 +185,7 @@ function Map(props){
                         <div>
                             {/* {mostLikedPost(selected.region_id)} */}
                             {/* <h2> */}
-                                {/* We will put post modal here? */}
-                                {/* <p>{selected.lat} {selected.lng}</p>
-                                <p>{props.posts.sort_id} </p> */}
+                                <p>{props.posts.sort_id} </p>
                             <p className="see-posts" onClick={() => {props.handleRegionChange(selected.region_id); mostLikedPost(selected.region_id)}}>See more posts from here!</p>
                                 <div className="post-preview">
                                     <div className="modal-picture-container">

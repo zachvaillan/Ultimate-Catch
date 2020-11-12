@@ -85,7 +85,6 @@ class PostIndex extends React.Component {
     } else {
       return (
           <div className="main-content">
-            <p>{console.log(this.state)}</p>
             <div className="map-container">
             <div className="sticky-map-container"> <Map 
             fetchPost={this.props.fetchPost} 
