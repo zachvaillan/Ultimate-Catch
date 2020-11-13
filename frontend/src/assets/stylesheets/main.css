@@ -19,7 +19,6 @@
   width: 40vw;
   /* height: 475px; */
   /* margin-right: 40px; */
-
 }
 
 .posts-idx-main{
@@ -34,5 +33,5 @@
 
 .map-container{
   width: 40vw;    
-  border-right: 10px solid rgb(69,175,181);
+  border-right: 1vw solid rgb(69,175,181);
 }
