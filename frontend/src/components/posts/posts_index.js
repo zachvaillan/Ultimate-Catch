@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PostIndexItem from './post_index_item';
-// import Map from '../map/map';
+import Map from '../map/map';
 import '../../assets/stylesheets/posts_index.css';
 // import PostIndexItem from './post_index_item';
 // import '../map/map.css';
@@ -68,6 +68,7 @@ class PostIndex extends React.Component {
   }
 
   componentWillReceiveProps(newState) {
+    this.setState({posts: []});
     this.setState({ posts: newState.posts });
   }
 
@@ -84,16 +85,15 @@ class PostIndex extends React.Component {
     } else {
       return (
           <div className="main-content">
-            <p>{console.log(this.state)}</p>
             <div className="map-container">
-            {/* <div className="sticky-map-container"> <Map 
+            <div className="sticky-map-container"> <Map 
             fetchPost={this.props.fetchPost} 
             fetchWeather={this.props.fetchWeather} 
             regions={this.props.regions} 
             posts={this.state.posts} 
             fetchPosts={this.props.fetchPost} 
             handleRegionChange={this.handleRegionChange} 
-            fetchRegions={this.props.fetchRegions} /> </div> */}
+            fetchRegions={this.props.fetchRegions} /> </div>
             </div>
             <div className="posts-idx-main-container">
               <div className="posts-idx-main" >
