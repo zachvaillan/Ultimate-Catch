@@ -21,6 +21,7 @@ class NavBar extends React.Component {
             <div className="nav-links">
               <div><Link to={'/profile'}>Profile</Link></div>
               <div><Link to={'/posts/new'}>Write a Post</Link></div> 
+              <div><Link to={'/about'}>Team</Link></div> 
               <button className="logoutBtn" onClick={this.logoutUser}>Logout</button>
             </div>
         );
