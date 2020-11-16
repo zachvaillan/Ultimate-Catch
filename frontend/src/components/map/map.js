@@ -73,9 +73,9 @@ function Map(props){
                         weather: props.regions[i].weather
                     }
                 // markers[marker.id] = marker 
-            // if(!markers.includes(marker)){
-                markers.push(marker)
-            // }
+            if(!markers.includes(marker)){
+                setMarkers(markers.concat(marker))
+            }
             }
         }
         bool = true;
