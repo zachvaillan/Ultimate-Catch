@@ -63,7 +63,7 @@ class PostIndex extends React.Component {
     }, 300)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 

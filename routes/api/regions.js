@@ -17,9 +17,6 @@ router.get("/", (req, res) => {
                 .then(weather => {console.log(weather.data);regions[i].weather = weather.data.weather[0].description; regions[i].save()})
                 .catch(err => console.log(err))
             }
-            for (let i = 0; i < regions.length; i++) {
-                console.log(regions[i].weather)
-            }
             res.json(regions)
         })
         .catch(err => res.status(400).json(err));

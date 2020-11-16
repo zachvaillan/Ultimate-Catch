@@ -28,7 +28,6 @@ const mapContainerStyle = {
 };
 let bool = false;
 function Map(props){
-    console.log(props)
     const { isLoaded, loadError } = useLoadScript({
         // googleMapsApiKey: "AIzaSyDTBgA_TduCfs3_9MRI6oze8px-uqTNtEo",
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -38,7 +37,7 @@ function Map(props){
     // { lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() },
     //     { lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() }]
     // const [markers, placeMarkers] = React.useState({});
-    const [markers, placeMarkers] = React.useState([]);
+    let [markers, setMarkers] = React.useState([]);
 
     // if(props.regions.length> 0){
 
@@ -51,11 +50,6 @@ function Map(props){
     //     }, []);
     // }
 
-    // for(let i = 0;i<props.regions.length;i++){
-    //     console.log(props.regions[i].weather)
-    // }
-
-    // console.log(markers)
     useEffect( () => {
         props.fetchRegions();
     }, [])
@@ -64,15 +58,12 @@ function Map(props){
             props.fetchRegions();
             props.fetchPosts();
         }
-        
+        setMarkers = [];
+        markers = []
         // let markers = []
         if(props.regions.length > 0){
-            console.log("regions")
-            console.log(props.regions[0])
-            console.log(props.regions[0].posts)
             let marker = {}
             for(let i = 0;i<props.regions.length;i++){
-                // console.log(props.regions.weather)
                     marker = {
                         lat: props.regions[i].coordinates.lat,
                         lng: props.regions[i].coordinates.lng,
@@ -81,9 +72,10 @@ function Map(props){
                         posts: props.regions[i].posts,
                         weather: props.regions[i].weather
                     }
-                // console.log(marker)
                 // markers[marker.id] = marker 
+            // if(!markers.includes(marker)){
                 markers.push(marker)
+            // }
             }
         }
         bool = true;
@@ -116,17 +108,12 @@ function Map(props){
     //     let max = -1;
     //     let post = null;
     //     for(let i = 0;i <props.posts.length; i++){
-    //         console.log(props.posts[i].region)
-    //         console.log(id)
     //         if((props.posts[i].region === id) && (props.posts[i].likes.length > max)){
     //             max = props.posts[i].likes.length
     //             post = props.posts[i]
     //         }
     //     }
     //     if(post === null){
-    //         console.log(props.posts)
-    //         console.log(props.posts[0])
-
     //         return props.posts[0]
     //     }
     //     return post;

@@ -64,14 +64,12 @@ export const fetchPost = postId => dispatch => (
 );
 
 export const heartPost = (postId, likeData) => dispatch => (
-  // console.log(post)  THIS IS WHERE YOUR ERROR WAS ZACH post.id undefined but post._id exists
   likePost(postId, likeData)
     .then(post => dispatch(receivePost(post)))
     .catch(err => console.log(err))
 );
 
 export const unheartPost = (postId, likeData) => dispatch => (
-  // console.log(post)  THIS IS WHERE YOUR ERROR WAS ZACH post.id undefined but post._id exists
   unlikePost(postId, likeData)
     .then(post => dispatch(receivePost(post)))
     .catch(err => console.log(err))
