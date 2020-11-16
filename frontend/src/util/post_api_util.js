@@ -21,14 +21,10 @@ export const writePost = data => {
 }
 
 export const likePost = (id, likeData) => {
-  // console.log(id)
-  // console.log(axios.put(`/api/posts/${id}`))
   return axios.post(`/api/posts/like/${id}`, likeData)
 }
 
 export const unlikePost = (id, likeData) => {
-  // console.log(id)
-  // console.log(axios.put(`/api/posts/${id}`))
   return axios.post(`/api/posts/unlike/${id}`, likeData)
 }
 

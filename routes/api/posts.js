@@ -24,8 +24,6 @@ router.get("/user/:user_id", (req, res) => {
 });
 
 router.get("/region/:region_id", (req, res) => {
-    // console.log("IN REGION/REGIONID-=-=-=-=-=-=-=-=-")
-    // console.log(new ObjectID(req.params.region_id))
     Post 
         .find({ region: req.params.region_id })
         .then(posts => res.json(posts))

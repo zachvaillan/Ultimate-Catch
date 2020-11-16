@@ -9,6 +9,6 @@ export const receiveRegions = regions => ({
 
 export const fetchRegions = () => dispatch => (
     getRegions()
-        .then(posts => dispatch(receiveRegions(posts)))
+        .then(regions => dispatch(receiveRegions(regions)))
         .catch(err => console.log(err))
 ); 
