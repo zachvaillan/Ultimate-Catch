@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
         .find()
         .then(regions => {
             //change all regions weather and return
-            for(let i = 0; i<regions.length;i++){
-                //get api call 
-                axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${regions[i].lat}&lon=${regions[i].lng}&appid=ff73536f48ae4d3c3b9179833e630eaf`)
-                .then(weather => {console.log(weather.data);regions[i].weather = weather.data.weather[0].description; regions[i].save()})
-                .catch(err => console.log(err))
-            }
+            // for(let i = 0; i<regions.length;i++){
+            //     //get api call 
+            //     axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${regions[i].lat}&lon=${regions[i].lng}&appid=ff73536f48ae4d3c3b9179833e630eaf`)
+            //     .then(weather => {console.log(weather.data);regions[i].weather = weather.data.weather[0].description; regions[i].save()})
+            //     .catch(err => console.log(err))
+            // }
             res.json(regions)
         })
         .catch(err => res.status(400).json(err));

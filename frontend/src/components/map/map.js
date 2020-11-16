@@ -1,4 +1,3 @@
-/* global google */
 import React, { useEffect} from 'react'
 import {
     GoogleMap,
@@ -26,7 +25,6 @@ const mapContainerStyle = {
     height: "100vh",
     width: "420px",
 };
-let bool = false;
 function Map(props){
     const { isLoaded, loadError } = useLoadScript({
         // googleMapsApiKey: "AIzaSyDTBgA_TduCfs3_9MRI6oze8px-uqTNtEo",
@@ -37,7 +35,8 @@ function Map(props){
     // { lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() },
     //     { lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() }]
     // const [markers, placeMarkers] = React.useState({});
-    let [markers, setMarkers] = React.useState([]);
+    const [markers, setMarkers] = React.useState([]);
+    const [flag, setFlag] = React.useState(false);
 
     // if(props.regions.length> 0){
 
@@ -50,18 +49,16 @@ function Map(props){
     //     }, []);
     // }
 
-    useEffect( () => {
-        props.fetchRegions();
-    }, [])
+    // useEffect( () => {
+    //     props.fetchRegions();
+    // }, [])
     useEffect(() => {
-        if(!bool){
+        if(!flag){
             props.fetchRegions();
-            props.fetchPosts();
+            setFlag(true)
         }
-        setMarkers = [];
-        markers = []
-        // let markers = []
         if(props.regions.length > 0){
+            if(props.regions.length !== markers.length){
             let marker = {}
             for(let i = 0;i<props.regions.length;i++){
                     marker = {
@@ -72,13 +69,22 @@ function Map(props){
                         posts: props.regions[i].posts,
                         weather: props.regions[i].weather
                     }
-                // markers[marker.id] = marker 
-            if(!markers.includes(marker)){
-                setMarkers(markers.concat(marker))
+            if(markers.length === 0){
+                markers.push(marker)
+            }else{
+                let bool = false;
+                for(let i = 0;i<markers.length;i++){
+                    if(markers[i].region_id === marker.region_id){
+                        bool = true;
+                    }
+                }
+                if(bool === false){
+                    markers.push(marker)
+                }
             }
+
             }
-        }
-        bool = true;
+        }}
     });
     // markers.push({ lat: 39.09423597068579, lng: -120.02614425979569, time: new Date() })
     // markers.push({ lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() })
@@ -122,7 +128,9 @@ function Map(props){
     const mostLikedPost = () => {
         let most = props.posts[0];
         props.posts.forEach(post => {
-            post.likes.length > most.likes.length ? most = post : most = most;
+            if(post.likes.length > most.likes.length){
+                most = post
+            };
         });
         return most;
     };
@@ -131,6 +139,7 @@ function Map(props){
 
     return(
         <div>
+        {console.log(markers)}
             <GoogleMap id="map"
             mapContainerStyle={mapContainerStyle}
             zoom={8}
@@ -176,7 +185,7 @@ function Map(props){
                             <p className="see-posts" onClick={() => {props.handleRegionChange(selected.region_id); mostLikedPost(selected.region_id)}}>See more posts from here!</p>
                                 <div className="post-preview">
                                     <div className="modal-picture-container">
-                                        <img id="modal-picture" src={mostLikedPost(selected.mostLikedPost).picture} />
+                                        <img id="modal-picture" alt="" src={mostLikedPost(selected.mostLikedPost).picture} />
                                     </div>
                                 <p className="post-preview-text">{mostLikedPost(selected.mostLikedPost).text} </p>
                                 <p> {selected.weather}</p>
