@@ -27,7 +27,6 @@ const mapContainerStyle = {
 };
 function Map(props){
     const { isLoaded, loadError } = useLoadScript({
-        // googleMapsApiKey: "AIzaSyDTBgA_TduCfs3_9MRI6oze8px-uqTNtEo",
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries,
     })
@@ -35,7 +34,7 @@ function Map(props){
     // { lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() },
     //     { lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() }]
     // const [markers, placeMarkers] = React.useState({});
-    const [markers, setMarkers] = React.useState([]);
+    const [markers] = React.useState([]);
     const [flag, setFlag] = React.useState(false);
 
     // if(props.regions.length> 0){
