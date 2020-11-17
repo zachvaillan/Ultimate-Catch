@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 
 router.get("/user/:user_id", (req, res) => {
     Post 
-        .find({ user: req.params.user_id })
+        .find({ users: req.params.user_id })
         .then(posts => res.json(posts))
         .catch(err => res.status(400).json(err));
 });
