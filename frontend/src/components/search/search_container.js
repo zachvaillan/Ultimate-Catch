@@ -3,7 +3,7 @@ import Search from './search';
 
 const mSTP = (state) => {
   return {
-    search: state.entities.search
+    searchd: state.entities.search[0]
   }
 };
 

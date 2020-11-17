@@ -2,14 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import '../../assets/stylesheets/search.css'
 
-const Search = ({search}) => {
+const Search = ({searchd}) => {
+  console.log(searchd)
   function results()  {
-  
-    if (search.length === 0) {
+    if (searchd.length === 0) {
       return <div>No users found</div>
     } else {
-
-      return search.map(user => <div>{user.handle}</div>) 
+      return searchd.map(user => <div className="search-result">{user.handle}</div>) 
     }
   }
 
@@ -19,8 +18,7 @@ const Search = ({search}) => {
       <div>
         {results()}
       </div>
-
-      <Link>
+      <Link to='/main'>
         <button>back</button>
       </Link>
     </section>

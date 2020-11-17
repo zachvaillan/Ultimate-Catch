@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Search from '../search/search'
 import '../../assets/stylesheets/navbar.css';
 
 class NavBar extends React.Component {
@@ -42,16 +41,24 @@ class NavBar extends React.Component {
             <div className="nav-links">
 
             <form >
-              <input 
+              {/* <input 
                 className='user-search'
                 placeholder='User Search'
                 type='search' 
                 onChange={this.update()}>                
               </input>
+              
               <NavLink to={'/search'} >
+                <button  onClick={this.submit}></button>   
+              </NavLink> */}
 
-                <button  onClick={this.submit}></button>
-              </NavLink>
+
+              <div className="search-box">
+                <input type="text" name="" onChange={this.update()} className="search-txt" placeholder="Search User..."/>
+                <NavLink to={'/search'} >
+                <button  onClick={this.submit} className="search-btn"></button>             
+                </NavLink>
+              </div>
             </form>
 
               <div><Link to={'/profile'}>Profile</Link></div>
