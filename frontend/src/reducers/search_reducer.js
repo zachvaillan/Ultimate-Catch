@@ -1,12 +1,11 @@
-import { RECEIVE_FISH } from '../actions/search_actions';
+import { FOUND_USERS } from '../actions/search_actions';
 
 const searchReducer = (state = {}, action) => {
-  Object.freeze(state);
 
+  Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_FISH:
-      debugger
-      return action.fish
+    case FOUND_USERS:
+      return action.payload.data;
     default:
       return state
   }

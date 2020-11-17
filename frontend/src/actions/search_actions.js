@@ -1,20 +1,18 @@
-// import * as APIUtil from '../util/search_util';
+import { searchUsers } from '../util/search_util';
 
-// export const RECEIVE_FISH = 'RECEIVE_FISH';
+export const FOUND_USERS = 'FOUND_USERS';
 
-// const receiveFish = fish => {
-//   // debugger
-//   return ({
-//     type: RECEIVE_FISH,
-//     fish
-//   });
-// };
+const foundUsers = payload => {
+  return {
+    type: FOUND_USERS,
+    payload
+  }
+};
 
-// export const fetchFish = query => dispatch => {
-//   // debugger
-//   return (
-//     APIUtil.getFish(query)
-//       .then(fish => dispatch(receiveFish(fish)))
-//       .catch(err => console.log('BOB'))
-//   )
-// };
+export const userSearch = query => dispatch => {
+  return (
+    searchUsers(query)
+      .then(data => dispatch(foundUsers(data)))
+      .catch(err => console.log(err))
+  )
+}
