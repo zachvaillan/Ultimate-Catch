@@ -1,0 +1,12 @@
+.users-show{
+    margin-top: 45px;
+}
+
+.users-show-name{
+    position: fixed;
+}
+
+.users-show-post-container{
+    width: 50vw;
+    margin: auto;
+}

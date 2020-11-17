@@ -18,6 +18,8 @@
     border-bottom: 1px solid rgba(206, 202, 202, 0.945); 
     
     margin-bottom: 15px;
+
+    border-top: 5px solid rgb(69,175,181);
 }
 
 .posts-idx-container{
@@ -205,3 +207,4 @@
 .post-pic-container{
     width: 100%;
 }
+
