@@ -30,27 +30,8 @@ function Map(props){
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries,
     })
-    // [{ lat: 39.09423597068579, lng: -120.02614425979569, time: new Date() },
-    // { lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() },
-    //     { lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() }]
-    // const [markers, placeMarkers] = React.useState({});
     const [markers] = React.useState([]);
     const [flag, setFlag] = React.useState(false);
-
-    // if(props.regions.length> 0){
-
-    //     useEffect(() => {
-    //         props.fetchRegions().then( () => 
-    //         {for(let i =0;i<props.regions.length;i++){
-    //             props.regions[i].weather = props.fetchWeather(props.regions[i].coordinates.lat, props.regions[i].coordinates.lng)
-    //         }}
-    //         )
-    //     }, []);
-    // }
-
-    // useEffect( () => {
-    //     props.fetchRegions();
-    // }, [])
     useEffect(() => {
         if(!flag){
             props.fetchRegions();
