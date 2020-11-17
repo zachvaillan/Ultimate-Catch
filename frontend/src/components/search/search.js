@@ -19,8 +19,9 @@ const Search = ({searchd}) => {
         {results()}
       </div>
       <Link to='/main'>
-        <button>back</button>
+        <button className="submit">back</button>
       </Link>
+
     </section>
   )
 };

@@ -16,12 +16,10 @@ class NavBar extends React.Component {
     this.submit = this.submit.bind(this);
   }
 
-
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
   }
-
 
   submit() {
     this.props.userSearch(this.state.query)
@@ -31,9 +29,6 @@ class NavBar extends React.Component {
     return e => this.setState({ query: e.target.value}); 
   }
 
-
-
-
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
@@ -41,6 +36,7 @@ class NavBar extends React.Component {
             <div className="nav-links">
 
             <form >
+
               {/* <input 
                 className='user-search'
                 placeholder='User Search'
