@@ -52,16 +52,20 @@ class UserPosts extends React.Component {
             return (<div>There are no Posts</div>)
           } else {
             return(
-                <div className="users-show">
-                    <p className="users-show-name">{this.props.userPosts[0].handle}</p>
-                    <div className="users-show-post-container" >
-                        <div className="posts-idx-container">
-                            {this.state.userPosts.map(post => (
-                                <PostIndexItem key={post.id} user={this.props.user} onComment={this.onComment} userId={this.props.userId} post={post} onUnlike={this.onUnlike} onLike={this.onLike} fetchPost={this.props.fetchPost} heartPost={this.props.heartPost} />
-                            ))}
+                <div className="main-content">
+                    <div className="user-info-container">
+                        <p className="users-show-name">{this.state.userPosts[0].handle}</p>
+                    </div>
+                    <div className="posts-idx-main-container">
+                        <div className="posts-idx-main" >
+                            <div className="posts-idx-container">
+                                {this.state.userPosts.map(post => (
+                                    <PostIndexItem key={post.id} user={this.props.user} onComment={this.onComment} userId={this.props.userId} post={post} onUnlike={this.onUnlike} onLike={this.onLike} fetchPost={this.props.fetchPost} heartPost={this.props.heartPost} />
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>     
+                </div>  
             )
         }   
     }
