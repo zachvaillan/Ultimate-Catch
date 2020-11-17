@@ -86,28 +86,13 @@ function Map(props){
             }
         }}
     });
-    // markers.push({ lat: 39.09423597068579, lng: -120.02614425979569, time: new Date() })
-    // markers.push({ lat: 37.64794739271973, lng: -122.2829815703125, time: new Date() })
-    // markers.push({ lat: 39.05225234813503, lng: -122.8322979765625, time: new Date() })
     const [selected, setSelected] = React.useState(null);
-    // const getWeather = (latitude, longitude) => {
-    //     props.fetchWeather(latitude, longitude)
-    // }
-
     if(loadError){
         return "Error Loading Maps"
     }   
     if (!isLoaded) {
         return <div>"Loading Map!"</div>
     }
-
-    // const mostLikedPost = () => {
-    //     let most = props.posts[0];
-    //     props.posts.forEach(post => {
-    //         post.likes.length > most.likes ? most = post : most = most;
-    //     });
-    //     return most;
-    // };
 
     // const mostLikedPost = (id) => {
     //     let arr = []
@@ -135,8 +120,6 @@ function Map(props){
         return most;
     };
         
-        
-
     return(
         <div>
         {console.log(markers)}
@@ -145,20 +128,7 @@ function Map(props){
             zoom={8}
             center={sanFran}
             options= {styles}
-            // onClick={onMapClick}
             >   
-            {/* {Object.keys(markers).forEach( marker =>
-                {
-                    <Marker
-                        key={markers[marker].region_id}
-                        position={{ lat: markers[marker].lat, lng: markers[marker].lng }}
-                    onClick={() => {
-                        setSelected(markers[marker]);
-                        markers[marker].mostLikedPost = mostLikedPost(markers[marker].region_id)
-                    }} />
-                }
-            )
-            } */}
                 {markers.map((marker) => (
                     <Marker
                         key={marker.region_id}
@@ -169,10 +139,8 @@ function Map(props){
                         }}
                     />
                 ))}
-                
                 {selected ? (
                     <InfoWindow
-                    
                     position={{ lat: selected.lat, lng: selected.lng }}
                     onCloseClick={() => {
                     setSelected(null);
@@ -180,7 +148,6 @@ function Map(props){
                     >
                         <div>
                             {/* {mostLikedPost(selected.region_id)} */}
-                            {/* <h2> */}
                                 <p>{props.posts.sort_id} </p>
                             <p className="see-posts" onClick={() => {props.handleRegionChange(selected.region_id); mostLikedPost(selected.region_id)}}>See more posts from here!</p>
                                 <div className="post-preview">
@@ -190,14 +157,8 @@ function Map(props){
                                 <p className="post-preview-text">{mostLikedPost(selected.mostLikedPost).text} </p>
                                 <p> {selected.weather}</p>
                                 </div>
-                                {/* <p>{props.posts[0].date} </p> */}
                                 {/* <Link to={`/api/posts/${props.posts[0]._id}`}> Go to Post </Link> */}
-                                
-                                {/* <p>{props.weather.bool.weather[0].description ? <div>{props.weather.data.weather[0].description}</div> : getWeather(selected.lat,selected.lng)}</p> */}
-                                
                                 {/* <Post fetchpost={props.fetchPost} lat={selected.lat} lng={selected.lng}/> */}
-                            {/* </h2> */}
-                            {/* <p>{formatRelative(selected.time, new Date())}</p> */}
                         </div>
                     </InfoWindow>
                 ) : null}
