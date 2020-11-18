@@ -19,7 +19,9 @@ class PostIndexItem extends React.Component{
             this.setState({ [field]: e.target.value });
         };
     }
+    handleSubmit(e){
 
+    }
     render(){
         let liked = false;
         this.props.post.likes.forEach(item => {
