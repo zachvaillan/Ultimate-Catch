@@ -17,3 +17,8 @@
     border-right: 5px solid rgb(69,175,181);
     box-sizing: border-box;
 }
+
+.follow-btn{
+    width: 200px;
+    margin-top: 100px;
+}

@@ -13,10 +13,18 @@ class UserPosts extends React.Component {
         }
     }
 
+    userFetch(){
+        if (this.state.notCurrentUser){
+            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
+        } else{
+            this.props.fetchUserPosts(this.props.user.id);
+        }
+    }
+
     onComment = (id, commentData) => {
         this.props.leaveComment(id, commentData)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)  
+            this.userFetch(); 
         }, 300)
     }
 
@@ -25,7 +33,7 @@ class UserPosts extends React.Component {
 
         this.props.heartPost(id, newLike)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)    
+            this.userFetch();   
         }, 300)
     }
 
@@ -34,16 +42,14 @@ class UserPosts extends React.Component {
 
         this.props.unheartPost(id, removeLike)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)
+            this.userFetch();
         }, 300)
     }
 
     componentDidMount() {
-        if (this.state.notCurrentUser){
-            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
-        } else{
-            this.props.fetchUserPosts(this.props.user.id);
-        }
+        console.log(this.state.notCurrentUser);
+        console.log(this.props.userId);
+        this.userFetch();
     }
 
     componentWillReceiveProps(newState) {
@@ -52,6 +58,11 @@ class UserPosts extends React.Component {
     }
 
     render(){
+        let followBtn = null;
+        if (this.state.notCurrentUser){
+            followBtn = (<button className="follow-btn" onClick={() => this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)}>Follow</button>);
+        }
+
         if (this.state.userPosts.length === 0) {
             return (<div>There are no Posts</div>)
           } else {
@@ -59,6 +70,7 @@ class UserPosts extends React.Component {
                 <div className="main-content">
                     <div className="user-info-container">
                         <p className="users-show-name">{this.state.userPosts[0].handle}</p>
+                        {followBtn}
                     </div>
                     <div className="posts-idx-main-container">
                         <div className="posts-idx-main" >
