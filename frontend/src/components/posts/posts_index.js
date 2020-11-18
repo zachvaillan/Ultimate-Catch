@@ -65,6 +65,7 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
+    // this.setState({posts: this.props.posts})
   }
 
   componentWillReceiveProps(newState) {

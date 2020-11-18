@@ -8,12 +8,12 @@ class UserPosts extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            userPosts: this.props.userPosts
+            userPosts: [],
+            notCurrentUser: this.props.location.state
         }
     }
 
     onComment = (id, commentData) => {
-
         this.props.leaveComment(id, commentData)
         setTimeout(() => {
             this.props.fetchUserPosts(this.props.user.id)  
@@ -38,13 +38,17 @@ class UserPosts extends React.Component {
         }, 300)
     }
 
-    componentWillMount() {
-        this.props.fetchUserPosts(this.props.user.id);
+    componentDidMount() {
+        if (this.state.notCurrentUser){
+            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
+        } else{
+            this.props.fetchUserPosts(this.props.user.id);
+        }
     }
 
     componentWillReceiveProps(newState) {
-        this.setState({posts: []});
-        this.setState({ posts: newState.posts });
+        this.setState({userPosts: []});
+        this.setState({ userPosts: newState.userPosts });
     }
 
     render(){

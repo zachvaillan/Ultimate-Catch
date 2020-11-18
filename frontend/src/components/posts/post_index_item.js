@@ -1,7 +1,7 @@
 import React from 'react';
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class PostIndexItem extends React.Component{
     constructor(props){
@@ -52,7 +52,7 @@ class PostIndexItem extends React.Component{
                 <div className="post-info">
                     <div className="post-header">
 
-                        <div className="username">{this.props.post.handle}</div>
+                        <div className="username"><Link to={{pathname: '/profile', state: {notCurrentUser: this.props.post.users}}}>{this.props.post.handle}</Link></div>
                         <img className="badge" src="https://toppng.com/uploads/preview/instagram-verified-logo-11549386033fpzr9vfugd.png"></img>
                     </div>
 
@@ -76,11 +76,6 @@ class PostIndexItem extends React.Component{
                             })}
                         </ul>
                     </div>
-
-
-                    
-
-                     
 
                     <div className="comment-container">
                         <textarea className="comment-input" placeholder="Leave a comment!" onChange={this.handleUpdate("text")} type="text" />
