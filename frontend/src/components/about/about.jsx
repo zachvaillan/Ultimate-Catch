@@ -44,13 +44,15 @@ function About () {
         <div className="team">
           <h1>Jonathan Jo</h1>
           <img src="https://ultimatecatch-seed.s3-us-west-1.amazonaws.com/20170818-DSC_9936+(1).jpg" alt=""/>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quo debitis eligendi numquam asperiores, voluptate deserunt, quibusdam commodi repellat harum in voluptatum temporibus delectus recusandae expedita! Eveniet quod magni voluptatem.</p>
+          <p>2019 B.S Computer Science graduate at Seattle Pacific University. A hard worker and fast learner who is excited and curious about coding.</p>
 
           <div className="about-links">
             <a href="https://github.com/jonathanbgjo">
               <img className="about-git" src="https://oceanstar-seed.s3-us-west-1.amazonaws.com/gitlogo.jpg" alt=""/>
             </a>
-            <img className="about-git" src="https://oceanstar-seed.s3-us-west-1.amazonaws.com/linkedin-logo-transparent.png" alt=""/>
+            <a href="https://www.linkedin.com/in/jonjo0721/">
+              <img className="about-git" src="https://oceanstar-seed.s3-us-west-1.amazonaws.com/linkedin-logo-transparent.png" alt=""/>
+            </a>
           </div>
         </div>
       </section>

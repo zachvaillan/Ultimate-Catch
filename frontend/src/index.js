@@ -7,7 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import axios from 'axios';
 
 import { logout } from './actions/session_actions';
-import { fetchFish } from './actions/search_actions'
+import { userSearch } from './actions/search_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //TEST
   
   window.axios = axios;
-  window.fetchFish = fetchFish;
+  window.userSearch = userSearch;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
