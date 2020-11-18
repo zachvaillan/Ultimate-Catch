@@ -105,4 +105,38 @@ router.post('/register', (req, res) => {
       })
   })
 
+  router.post('/follow/:action_id/:current_id',
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+    User.findById(req.params.current_id)
+        .then(currentUser => {
+            const newFollower = {
+                user: currentUser,
+                handle: currentUser.handle
+            }
+            console.log(currentUser)
+            let followCheck = false;
+
+            User.findById(req.params.action_id)
+              .then(potentialFollow => {
+                const newFollow = {
+                  user: potentialFollow,
+                  handle: potentialFollow.handle
+                }
+                
+                potentialFollow.followers.forEach(follower => {
+                  if (String(follower.id) === currentUser.id){
+                      followCheck = true;
+                  }
+                })
+  
+                if (!followCheck){
+                    potentialFollow.followers.unshift(newFollower);
+                    currentUser.following.unshift(newFollow);
+                }
+              }) 
+      })
+      .catch(err => res.status(404).json(err))
+  })
+
 module.exports = router;

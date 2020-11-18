@@ -13,7 +13,25 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  followers: [{
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users"
+    },
+    handle: {
+        type: String
+    }
+  }],
+  following: [{
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users"
+    },
+    handle: {
+        type: String
+    }
+  }],
 }, {
   timestamps: true
 })

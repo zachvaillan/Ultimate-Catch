@@ -47,6 +47,8 @@ class UserPosts extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.state.notCurrentUser);
+        console.log(this.props.userId);
         this.userFetch();
     }
 
@@ -56,6 +58,11 @@ class UserPosts extends React.Component {
     }
 
     render(){
+        let followBtn = null;
+        if (this.state.notCurrentUser){
+            followBtn = (<button className="follow-btn" onClick={() => this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)}>Follow</button>);
+        }
+
         if (this.state.userPosts.length === 0) {
             return (<div>There are no Posts</div>)
           } else {
@@ -63,6 +70,7 @@ class UserPosts extends React.Component {
                 <div className="main-content">
                     <div className="user-info-container">
                         <p className="users-show-name">{this.state.userPosts[0].handle}</p>
+                        {followBtn}
                     </div>
                     <div className="posts-idx-main-container">
                         <div className="posts-idx-main" >
