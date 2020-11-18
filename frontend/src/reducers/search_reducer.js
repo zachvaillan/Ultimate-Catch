@@ -5,7 +5,8 @@ const searchReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case FOUND_USERS:
-      return [action.payload.data];
+      
+      return action.payload.data;
     default:
       return state
   }
