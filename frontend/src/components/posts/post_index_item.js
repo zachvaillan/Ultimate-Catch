@@ -34,7 +34,7 @@ class PostIndexItem extends React.Component{
             (<FontAwesomeIcon className="heart" icon={faHeart} onClick={() => this.props.onLike(this.props.post._id)}/>);
 
         return(
-            <div className="posts-idx-item">
+            <div key={this.props.post_id} className="posts-idx-item">
 
                 <div className="post-pic-and-likes">
                     <div className="post-pic-container">
@@ -64,7 +64,7 @@ class PostIndexItem extends React.Component{
 
                         <ul className="comments-list">
                             {this.props.post.comments.map(comment => {
-                                return <li className="user-comment">
+                                return <li key={this.props.post._id + comment._id} className="user-comment" >
                                     <div>   
 
                                         <p className="comment-owner">{comment.handle}:</p>

@@ -74,16 +74,6 @@ class PostIndex extends React.Component {
   }
 
   render() {
-   
-    ( 
-    <div className="posts-idx-container">
-    {
-    this.state.posts.map(post => (
-      <PostIndexItem user={this.props.user} key={post.id} onComment={this.onComment} userId={this.props.userId} post={post} onUnlike={this.onUnlike} onLike={this.onLike} fetchPost={this.props.fetchPost} heartPost={this.props.heartPost} />  
-      ))}
-  </div>
-  );
-
     if (this.state.posts.length === 0) {
       return (<div>There are no Posts</div>)
     } else {
@@ -103,7 +93,7 @@ class PostIndex extends React.Component {
               <div className="posts-idx-main" >
                 <div className="posts-idx-container">
                   {this.state.posts.map(post => (
-                    <PostIndexItem key={post.id} user={this.props.user} onComment={this.onComment} userId={this.props.userId} post={post} onUnlike={this.onUnlike} onLike={this.onLike} fetchPost={this.props.fetchPost} heartPost={this.props.heartPost} />
+                    <PostIndexItem key={post._id+this.props.user.id} user={this.props.user} onComment={this.onComment} userId={this.props.userId} post={post} onUnlike={this.onUnlike} onLike={this.onLike} fetchPost={this.props.fetchPost} heartPost={this.props.heartPost} />
                   ))}
                 </div>
               </div>
