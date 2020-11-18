@@ -7,16 +7,18 @@
   height: 100vh;
   color: white;
   font-family: 'Roboto', sans-serif;
+  margin-top: 45px;
 }
 
 .team { 
- display: flex;
- /* justify-content: space-between; */
- flex-direction: column;
- width: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 75vh;
   margin: 15px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
 
 }
 
@@ -24,12 +26,18 @@
   border-radius: 50%;
   width: 200px;
   border: 5px solid rgb(44, 39, 78);
+  margin-top: 15px;
+  margin-bottom: 14px;
 }
 
 .about-links {
   margin-top: 9px;
 }
 
+.team > p {
+  flex-grow: 1;
+  padding: 0 19px;
+}
 
 .about-git {
   background-color: transparent;
@@ -38,6 +46,7 @@
 }
 
 .team > h1 {
+  height: 30px;
   margin: 10px;
   font-weight: bold;
   font-size: 21px;

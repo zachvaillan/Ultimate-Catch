@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../assets/stylesheets/post_form.css'
+
 
 class PostForm extends React.Component{
     constructor(props){

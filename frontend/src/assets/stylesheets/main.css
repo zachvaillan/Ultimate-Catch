@@ -12,6 +12,7 @@
   /* flex-wrap: wrap; */
   /* justify-content: left; */
   text-align: right;
+  margin-top: 45px;
 }
 
 .sticky-map-container{
@@ -33,5 +34,6 @@
 
 .map-container{
   width: 40vw;    
-  border-right: 1vw solid rgb(69,175,181);
+  border-right: 5px solid rgb(69,175,181);
+  box-sizing: border-box;
 }

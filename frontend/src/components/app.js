@@ -12,6 +12,7 @@ import PostFormContainer from './posts/post_form_container';
 import SplashPage from './splash/splash';
 import About from './about/about'
 import UserPostsContainer from './posts/user_posts_container';
+import SearchContainer from './search/search_container';
 // import FooterContainer from './footer/footer_container'
 // import Profile from './profile/profile'
 
@@ -27,6 +28,7 @@ const App = () => (
         <ProtectedRoute exact path="/posts/new" component={PostFormContainer} />
         <ProtectedRoute exact path="/about" component={About} />
         <ProtectedRoute exact path="/profile" component={UserPostsContainer} />
+        <ProtectedRoute exact path='/search' component={SearchContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <AuthRoute exact path='/demo' component={DemoFormContainer} />
