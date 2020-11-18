@@ -27,9 +27,8 @@
 .post-info {
     /* border: 2px solid chartreuse; */
     width: 350px;
-
     height: 480px;
-
+    margin-left: 14px;
 
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -95,6 +94,14 @@
     align-self: center;
 }
 
+.post-text {
+    text-align: center;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-weight: 200;
+    color: rgb(29, 51, 80);
+    align-self: center;
+
+}
 
 .username {
     font-family: "Open Sans", Arial, sans-serif;
@@ -179,9 +186,12 @@
 }
 
 .comment-input {
+    font-family: "Open Sans", Arial, sans-serif;
+
     background-color:  #f3f3f3;
+    margin-left: 8px;
     padding: 10px;
-    width: 100%;
+    width: 88%;
     height: 50px;
     border: none;
     outline: none;
