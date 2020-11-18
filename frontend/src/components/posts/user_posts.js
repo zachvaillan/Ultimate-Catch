@@ -13,10 +13,18 @@ class UserPosts extends React.Component {
         }
     }
 
+    userFetch(){
+        if (this.state.notCurrentUser){
+            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
+        } else{
+            this.props.fetchUserPosts(this.props.user.id);
+        }
+    }
+
     onComment = (id, commentData) => {
         this.props.leaveComment(id, commentData)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)  
+            this.userFetch(); 
         }, 300)
     }
 
@@ -25,7 +33,7 @@ class UserPosts extends React.Component {
 
         this.props.heartPost(id, newLike)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)    
+            this.userFetch();   
         }, 300)
     }
 
@@ -34,16 +42,12 @@ class UserPosts extends React.Component {
 
         this.props.unheartPost(id, removeLike)
         setTimeout(() => {
-            this.props.fetchUserPosts(this.props.user.id)
+            this.userFetch();
         }, 300)
     }
 
     componentDidMount() {
-        if (this.state.notCurrentUser){
-            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
-        } else{
-            this.props.fetchUserPosts(this.props.user.id);
-        }
+        this.userFetch();
     }
 
     componentWillReceiveProps(newState) {
