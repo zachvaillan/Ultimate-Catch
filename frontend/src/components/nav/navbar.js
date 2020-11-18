@@ -29,25 +29,12 @@ class NavBar extends React.Component {
     return e => this.setState({ query: e.target.value}); 
   }
 
-  // Selectively render links dependent on whether the user is logged in
   getLinks() {
       if (this.props.loggedIn) {
         return (
             <div className="nav-links">
 
             <form >
-
-              {/* <input 
-                className='user-search'
-                placeholder='User Search'
-                type='search' 
-                onChange={this.update()}>                
-              </input>
-              
-              <NavLink to={'/search'} >
-                <button  onClick={this.submit}></button>   
-              </NavLink> */}
-
 
               <div className="search-box">
                 <input type="text" name="" onChange={this.update()} className="search-txt" placeholder="Search User..."/>
