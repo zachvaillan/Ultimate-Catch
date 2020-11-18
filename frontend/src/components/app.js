@@ -13,16 +13,18 @@ import SplashPage from './splash/splash';
 import About from './about/about'
 import UserPostsContainer from './posts/user_posts_container';
 import SearchContainer from './search/search_container';
+import ScrollToTop from './ScrollToTop';
 // import FooterContainer from './footer/footer_container'
 // import Profile from './profile/profile'
 
 const App = () => (
   <div>
+    
     <header>
       <NavBarContainer />
     </header>
-    <Switch>
 
+    <Switch>
         <ProtectedRoute exact path="/main" component={MainPage} />
         <ProtectedRoute exact path="/posts" component={PostsIndexContainer} />
         <ProtectedRoute exact path="/posts/new" component={PostFormContainer} />
