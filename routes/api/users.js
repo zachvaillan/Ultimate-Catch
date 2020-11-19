@@ -119,7 +119,7 @@ router.post('/register', (req, res) => {
                 user: currentUser,
                 handle: currentUser.handle
             }
-            console.log(currentUser)
+            // console.log(currentUser)
             let followCheck = false;
 
             User.findById(req.params.action_id)

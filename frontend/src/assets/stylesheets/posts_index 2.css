@@ -1,0 +1,207 @@
+.posts-idx-item{
+    /* position: absolute; */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 45px;
+    /* border: 2px solid red; */
+    display: flex;
+    font-family: "Open Sans", Arial, sans-serif;
+    /* min-height: 60vh; */
+    background-color: #fafafa;
+    color: #262626;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(206, 202, 202, 0.945); 
+    
+    margin-bottom: 15px;
+}
+
+.posts-idx-container{
+    width: 100%;
+}
+
+.post-info {
+    /* border: 2px solid chartreuse; */
+    width: 350px;
+
+    height: 480px;
+
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.post-pic-and-likes{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.post-pic{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid grey;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.post-header {
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 70px;
+    border-bottom: 1px solid rgba(206, 202, 202, 0.945); 
+    /* font-weight: bold; */
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 293px;
+}
+
+.comments-list {
+    /* border: 2px solid blue; */
+    /* min-height: 30vh; */
+    line-height: 1.5;
+    overflow: auto;
+    /* max-height: 40covh; */
+
+    height: 300px;
+
+    
+}
+
+.post-text-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+}
+
+
+.username {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 21px;
+    letter-spacing: 1.1px;  
+}
+
+.user-comment {
+    display: flex;
+    margin: 5px;
+    /* flex-direction: row;
+    justify-content: space-evenly; */
+    justify-content: space-around;
+}
+
+.comment-owner {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.comment-body {
+
+    background-color:  #e2f8ff;
+    order: 1;
+    width: 57%;
+    height: 55px;
+    text-align: left;
+    flex-wrap: wrap;
+    padding: 8px;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 2.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 2.5px 8px rgba(0, 0, 0, 0.06),
+    0 2.3px 8.9px rgba(0, 0, 0, 0.072),
+    0 2.8px 8.4px rgba(0, 0, 0, 0.086),
+    0 4px 8px rgba(0, 0, 0, 0.12)
+}
+
+.like-heart,.comment-icon{
+    cursor: pointer;
+}
+
+.likes-container {
+    display: flex;
+  
+    justify-content: space-around;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid rgba(206, 202, 202, 0.945); 
+    border-bottom: 1px solid rgba(206, 202, 202, 0.945); 
+    margin-top: 2px;
+}
+
+.like-heart {
+    font-size: 23px;
+    padding-right: 20px;
+    margin: auto;
+}
+
+.like-count-container{
+    margin: auto;
+}
+
+.liked-heart{
+    color: red;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+.comment-container{
+    display: flex;
+    z-index: -1;
+}
+
+.comment-input {
+    background-color:  #f3f3f3;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.comment-icon{
+    position: absolute;
+    right: 101px;
+    font-size: 25px;
+    color: rgb(57, 232, 255);  
+}
+
+.badge {
+    margin-left: 15px;
+    height: 26px;
+    width: 26px;
+    background-color: transparent;
+}
+
+.post-pic-container{
+    width: 100%;
+}
