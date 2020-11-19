@@ -1,4 +1,4 @@
-import { followUser } from '../util/user_api_util';
+import { followUser, unfollowUser } from '../util/user_api_util';
 import { findUserById } from '../util/search_util';
 
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
@@ -15,6 +15,12 @@ export const receiveFollower = ({
 
 export const follow = (actionId, currentId) => dispatch => (
     followUser(actionId, currentId)
+      .then( () => dispatch(receiveFollower()))
+      .catch(err => console.log(err))
+  ); 
+
+  export const unfollow = (actionId, currentId) => dispatch => (
+    unfollowUser(actionId, currentId)
       .then( () => dispatch(receiveFollower()))
       .catch(err => console.log(err))
   ); 

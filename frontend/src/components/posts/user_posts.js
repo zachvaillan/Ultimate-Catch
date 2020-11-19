@@ -10,7 +10,8 @@ class UserPosts extends React.Component {
         this.state = {
             userPosts: [],
             notCurrentUser: this.props.location.state,
-            userPage: null
+            userPage: null,
+            following: false
         }
     }
 
@@ -52,7 +53,16 @@ class UserPosts extends React.Component {
         this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)
         setTimeout(() => {
             this.userFetch();
-        }, 300)
+        }, 300);
+        this.setState({ following: true })
+    }
+
+    onUnfollow(){
+        this.props.unfollow(Object.values(this.state.notCurrentUser), this.props.userId)
+        setTimeout(() => {
+            this.userFetch();
+        }, 300);
+        this.setState({ following: false })
     }
 
     componentDidMount() {
@@ -66,14 +76,19 @@ class UserPosts extends React.Component {
 
     render(){
         let userInfo = null;
-        if (this.state.notCurrentUser && this.state.userPage){
-            userInfo = (
-                <div className="user-info-switch">
-                    <button className="follow-btn" onClick={() => this.onFollow()}>Follow</button>
-                    <p className="follower-count">{this.state.userPage.followers.length} followers</p>
-                </div>
-            );
-        }
+
+       
+
+        if (this.state.notCurrentUser){
+            if (this.state.userPage){
+                    userInfo = (
+                        <div className="user-info-switch">
+                            <button className="follow-btn" onClick={() => this.onFollow()}>Follow</button>
+                            <p className="follower-count">{this.state.userPage.followers.length} followers</p>
+                        </div>
+                    );
+            }
+        }                    
 
         if (this.state.userPosts.length === 0) {
             return (<div>There are no Posts</div>)

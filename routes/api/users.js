@@ -146,4 +146,32 @@ router.post('/register', (req, res) => {
       .catch(err => res.status(404).json(err))
   })
 
+  router.post('/unfollow/:action_id/:current_id',
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+    User.findById(req.params.current_id)
+      .then(currentUser => {
+        User.findById(req.params.action_id)
+          .then(actionUser => {
+            actionUser.followers.forEach( (follower, i) => {
+              if (String(follower.user) === currentUser.id){
+                console.log("USER TO BE REMOVED");
+                console.log(actionUser.followers.splice(i, 1));
+              }
+            });
+            currentUser.following.forEach( (follow, i) => {
+              if (String(follow.user) === actionUser.id){
+                console.log("followed user getting removed")
+                currentUser.following.splice(i, 1);
+              }
+            });
+            console.log(currentUser);
+            console.log(actionUser);
+            currentUser.save();
+            actionUser.save();
+          })
+      })
+      .catch(err => res.status(404).json(err))
+  })
+
 module.exports = router;

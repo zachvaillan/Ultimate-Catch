@@ -22,8 +22,13 @@
 .follow-btn{
     border: none;
     padding: 15px;
-    background-color: rgb(69,175,181);
+    background-color: rgb(69, 175, 181);
     color: white;
+    cursor: pointer;
+}
+
+.follow-btn:focus{
+    outline: none;
 }
 
 .user-info-flex{
