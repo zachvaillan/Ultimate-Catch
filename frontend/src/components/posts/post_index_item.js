@@ -34,7 +34,7 @@ class PostIndexItem extends React.Component{
             (<FontAwesomeIcon className="heart" icon={faHeart} onClick={() => this.props.onLike(this.props.post._id)}/>);
 
         return(
-            <div key={this.props.post_id} className="posts-idx-item">
+            <div key={this.props.post._id} className="posts-idx-item">
 
                 <div className="post-pic-and-likes">
                     <div className="post-pic-container">
