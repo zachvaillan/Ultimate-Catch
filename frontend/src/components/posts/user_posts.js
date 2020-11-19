@@ -9,13 +9,15 @@ class UserPosts extends React.Component {
         super(props);
         this.state = {
             userPosts: [],
-            notCurrentUser: this.props.location.state
+            notCurrentUser: this.props.location.state,
+            userPage: null
         }
     }
 
     userFetch(){
         if (this.state.notCurrentUser){
-            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser))
+            this.props.fetchUserPosts(Object.values(this.state.notCurrentUser));
+            this.props.fetchUser(Object.values(this.state.notCurrentUser))
         } else{
             this.props.fetchUserPosts(this.props.user.id);
         }
@@ -46,23 +48,29 @@ class UserPosts extends React.Component {
         }, 300)
     }
 
+    onFollow(){
+        this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)
+        setTimeout(() => {
+            this.userFetch();
+        }, 300)
+    }
+
     componentDidMount() {
         this.userFetch();
-        console.log(this.props.fetchUser(Object.values(this.state.notCurrentUser)))
     }
 
     componentWillReceiveProps(newState) {
         this.setState({userPosts: []});
-        this.setState({ userPosts: newState.userPosts });
+        this.setState({ userPosts: newState.userPosts, userPage: newState.userPage });
     }
 
     render(){
         let userInfo = null;
-        if (this.state.notCurrentUser){
+        if (this.state.notCurrentUser && this.state.userPage){
             userInfo = (
                 <div className="user-info-switch">
-                    <button className="follow-btn" onClick={() => this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)}>Follow</button>
-                    <p className="follower-count">{console.log(this.state.pageOwner)}</p>
+                    <button className="follow-btn" onClick={() => this.onFollow()}>Follow</button>
+                    <p className="follower-count">{this.state.userPage.followers.length} followers</p>
                 </div>
             );
         }

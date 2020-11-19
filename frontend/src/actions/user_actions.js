@@ -1,4 +1,5 @@
-import { followUser, getUser } from '../util/user_api_util';
+import { followUser } from '../util/user_api_util';
+import { findUserById } from '../util/search_util';
 
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -19,8 +20,7 @@ export const follow = (actionId, currentId) => dispatch => (
   ); 
 
 export const fetchUser = userId => dispatch => (
-    getUser(userId)
-        .then(user => console.log(user))
+    findUserById(userId)
         .then(user => dispatch(receiveUser(user)))
         .catch(err => console.log(err))
     );
