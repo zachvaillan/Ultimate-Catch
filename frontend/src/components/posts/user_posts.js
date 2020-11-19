@@ -48,7 +48,7 @@ class UserPosts extends React.Component {
 
     componentDidMount() {
         this.userFetch();
-        console.log(this.props.fetchUser(Object.values(this.state.notCurrentUser)))
+        // console.log(this.props.fetchUser(Object.values(this.state.notCurrentUser)))
     }
 
     componentWillReceiveProps(newState) {

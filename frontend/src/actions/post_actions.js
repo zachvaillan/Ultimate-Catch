@@ -38,14 +38,14 @@ export const fetchPosts = () => dispatch => (
 ); 
 
 export const fetchPostsByRegion = (regionId) => dispatch => (
-  console.log(regionId),
+  // console.log(regionId),
   getRegionPosts(regionId)
     .then(posts => dispatch(receiveRegionPosts(posts)))
     .catch(err => console.log(err))
 );
 
 export const fetchUserPosts = id => dispatch => (
-  console.log(id),
+  // console.log(id),
   getUserPosts(id)
     .then(posts => dispatch(receiveUserPosts(posts)))
     .catch(err => console.log(err))

@@ -102,7 +102,7 @@ function Map(props){
         
     return(
         <div>
-        {console.log(markers)}
+        {/* {console.log(markers)} */}
             <GoogleMap id="map"
             mapContainerStyle={mapContainerStyle}
             zoom={8}

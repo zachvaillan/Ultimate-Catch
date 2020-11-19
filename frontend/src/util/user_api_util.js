@@ -5,6 +5,6 @@ export const followUser = (actionId, currentId) => {
 };
 
 export const getUser = id => {
-    console.log("hello")
+    // console.log("hello")
     return axios.get(`/api/users/${id}`)
 };
