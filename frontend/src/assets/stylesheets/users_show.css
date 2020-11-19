@@ -3,8 +3,10 @@
 }
 
 .users-show-name{
-    width: 100%;
+    width: inherit;
     text-align: center;
+    padding: 50px 0px;
+    font-size: 36px;
 }
 
 .users-show-post-container{
@@ -18,8 +20,10 @@
 }
 
 .follow-btn{
-    width: 50px;
-    margin-top: 100px;
+    border: none;
+    padding: 15px;
+    background-color: rgb(69,175,181);
+    color: white;
 }
 
 .user-info-flex{
@@ -28,4 +32,17 @@
     position: fixed;
     justify-content: center;
     width: inherit;
+}
+
+.user-info-switch{
+    width: 80%;
+    border-top: 2px solid rgb(69,175,181);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.follower-count{
+    padding-left: 20px;
 }

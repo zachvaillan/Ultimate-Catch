@@ -7,9 +7,9 @@ const usersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_FOLLOW:
-        return action.payload.data;
+        console.log("hello")
     case RECEIVE_USER:  
-        newState.userPage = action.user
+        newState.userPage = action.user.data
         return newState;
     default:
       return state

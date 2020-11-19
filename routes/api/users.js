@@ -26,7 +26,6 @@ router.get('/:search', (req, res)  => {
   .catch(err => res.status(400).json({err}));
 }); 
 
-
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
       id: req.user.id,
@@ -131,7 +130,7 @@ router.post('/register', (req, res) => {
                 }
                 
                 potentialFollow.followers.forEach(follower => {
-                  if (String(follower.id) === currentUser.id){
+                  if (String(follower.user) === currentUser.id){
                       followCheck = true;
                   }
                 })
@@ -139,6 +138,8 @@ router.post('/register', (req, res) => {
                 if (!followCheck){
                     potentialFollow.followers.unshift(newFollower);
                     currentUser.following.unshift(newFollow);
+                    potentialFollow.save();
+                    currentUser.save();
                 }
               }) 
       })
