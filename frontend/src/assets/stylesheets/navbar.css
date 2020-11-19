@@ -63,6 +63,7 @@
   cursor: pointer;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 18px;
+  outline: none;
 }
 
 .logoutBtn:hover {
