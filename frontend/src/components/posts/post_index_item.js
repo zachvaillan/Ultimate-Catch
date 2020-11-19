@@ -12,12 +12,18 @@ class PostIndexItem extends React.Component{
         }
 
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.clear = this.clear.bind(this)
     }
 
     handleUpdate(field){
         return e => {
             this.setState({ [field]: e.target.value });
         };
+    }
+
+    clear(){
+        let comments = Object.values(document.getElementsByClassName('comment-input'))
+        comments.map(comm => comm.value = "")
     }
 
     render(){
@@ -34,7 +40,7 @@ class PostIndexItem extends React.Component{
             (<FontAwesomeIcon className="heart" icon={faHeart} onClick={() => this.props.onLike(this.props.post._id)}/>);
 
         return(
-            <div key={this.props.post_id} className="posts-idx-item">
+            <div key={this.props.post._id} className="posts-idx-item">
 
                 <div className="post-pic-and-likes">
                     <div className="post-pic-container">
@@ -79,7 +85,7 @@ class PostIndexItem extends React.Component{
 
                     <div className="comment-container">
                         <textarea className="comment-input" placeholder="Leave a comment!" onChange={this.handleUpdate("text")} type="text" />
-                        <FontAwesomeIcon className="comment-icon" icon={faComment} onClick={() => this.props.onComment(this.props.post._id, this.state)}/>
+                        <FontAwesomeIcon className="comment-icon" icon={faComment} onClick={() => {this.props.onComment(this.props.post._id, this.state); this.clear() } }/>
                     </div>
                 </div>
             </div>
