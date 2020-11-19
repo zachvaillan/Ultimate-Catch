@@ -3,7 +3,8 @@
 }
 
 .users-show-name{
-    position: fixed;
+    width: 100%;
+    text-align: center;
 }
 
 .users-show-post-container{
@@ -13,12 +14,18 @@
 
 .user-info-container{
     width: 40vw;    
-    box-sizing: border-box;
     border-right: 5px solid rgb(69,175,181);
-    box-sizing: border-box;
 }
 
 .follow-btn{
-    width: 200px;
+    width: 50px;
     margin-top: 100px;
+}
+
+.user-info-flex{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: center;
+    width: inherit;
 }
