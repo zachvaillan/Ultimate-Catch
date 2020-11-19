@@ -12,12 +12,18 @@ const validateLoginInput = require('../../validation/login');
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 
+router.get('/search/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json({err}));
+})
+
 router.get('/:search', (req, res)  => {
-      let query = req.params.search
-    
-      User.find({handle: { $regex: query } })
-      .then(user => res.json(user))
-      .catch(err => res.status(400).json({err}));
+  let query = req.params.search
+  
+  User.find({handle: { $regex: query } })
+  .then(user => res.json(user))
+  .catch(err => res.status(400).json({err}));
 }); 
 
 

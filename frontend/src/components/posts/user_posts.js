@@ -47,9 +47,8 @@ class UserPosts extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.state.notCurrentUser);
-        console.log(this.props.userId);
         this.userFetch();
+        console.log(this.props.fetchUser(Object.values(this.state.notCurrentUser)))
     }
 
     componentWillReceiveProps(newState) {
@@ -58,9 +57,14 @@ class UserPosts extends React.Component {
     }
 
     render(){
-        let followBtn = null;
+        let userInfo = null;
         if (this.state.notCurrentUser){
-            followBtn = (<button className="follow-btn" onClick={() => this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)}>Follow</button>);
+            userInfo = (
+                <div className="user-info-switch">
+                    <button className="follow-btn" onClick={() => this.props.follow(Object.values(this.state.notCurrentUser), this.props.userId)}>Follow</button>
+                    <p className="follower-count">{console.log(this.state.pageOwner)}</p>
+                </div>
+            );
         }
 
         if (this.state.userPosts.length === 0) {
@@ -69,8 +73,10 @@ class UserPosts extends React.Component {
             return(
                 <div className="main-content">
                     <div className="user-info-container">
-                        <p className="users-show-name">{this.state.userPosts[0].handle}</p>
-                        {followBtn}
+                        <div className="user-info-flex">
+                            <p className="users-show-name">{this.state.userPosts[0].handle}</p>
+                            {userInfo}
+                        </div>
                     </div>
                     <div className="posts-idx-main-container">
                         <div className="posts-idx-main" >
