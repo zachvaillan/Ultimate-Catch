@@ -18,7 +18,8 @@ class UserPosts extends React.Component {
     userFetch(){
         if (this.state.notCurrentUser){
             this.props.fetchUserPosts(Object.values(this.state.notCurrentUser));
-            this.props.fetchUser(Object.values(this.state.notCurrentUser))
+            this.props.fetchUser(Object.values(this.state.notCurrentUser));
+            this.isFollowing();
         } else{
             this.props.fetchUserPosts(this.props.user.id);
         }
@@ -54,7 +55,7 @@ class UserPosts extends React.Component {
         setTimeout(() => {
             this.userFetch();
         }, 300);
-        this.setState({ following: true })
+        console.log(this.state.userPage)
     }
 
     onUnfollow(){
@@ -62,7 +63,7 @@ class UserPosts extends React.Component {
         setTimeout(() => {
             this.userFetch();
         }, 300);
-        this.setState({ following: false })
+        // this.setState({ following: false })
     }
 
     componentDidMount() {
@@ -73,21 +74,40 @@ class UserPosts extends React.Component {
     componentWillReceiveProps(newState) {
         this.setState({userPosts: []});
         this.setState({ userPosts: newState.userPosts, userPage: newState.userPage });
+        this.isFollowing();
+    }
+
+    isFollowing(){
+        if (this.state.userPage){
+            this.state.userPage.followers.forEach(follower => {
+                if (follower.user === this.props.userId){
+                    console.log("TRUE")
+                    this.setState({ following: true });
+                }
+            })
+        }
     }
 
     render(){
         let userInfo = null;
 
-       
-
         if (this.state.notCurrentUser){
             if (this.state.userPage){
+                if (this.state.following === true){
+                    userInfo = (
+                        <div className="user-info-switch">
+                            <button className="follow-btn" onClick={() => this.onUnfollow()}>Unfollow</button>
+                            <p className="follower-count">{this.state.userPage.followers.length} followers</p>
+                        </div>
+                    );
+                } else {
                     userInfo = (
                         <div className="user-info-switch">
                             <button className="follow-btn" onClick={() => this.onFollow()}>Follow</button>
                             <p className="follower-count">{this.state.userPage.followers.length} followers</p>
                         </div>
                     );
+                }                    
             }
         }                    
 

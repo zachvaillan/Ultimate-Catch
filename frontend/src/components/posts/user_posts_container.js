@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserPosts from './user_posts';
 import { heartPost, fetchPost, unheartPost, leaveComment } from '../../actions/post_actions';
 import { follow, unfollow, fetchUser } from '../../actions/user_actions';
+import { userSearch } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
     return {
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
         fetchPost: (id) => dispatch(fetchPost(id)),
         follow: (actionId, currentId) => dispatch(follow(actionId, currentId)),
         unfollow: (actionId, currentId) => dispatch(unfollow(actionId, currentId)),
-        fetchUser: userId => dispatch(fetchUser(userId))
+        fetchUser: userId => dispatch(fetchUser(userId)),
+        userSearch: userId => dispatch(userSearch(userId))
     };
 };
 
