@@ -4,8 +4,6 @@ With an integrated Google Maps API, we've created a web and mobile friendly app 
 
 ### [Live Link](https://ultimatecatch2.herokuapp.com/#/)
 
-![screenshot](img/obama.png)
-
 ## Features
  + GeoTagging with Google Maps API
  + Weather API
@@ -15,12 +13,10 @@ With an integrated Google Maps API, we've created a web and mobile friendly app 
  + Search
 
  ## Technologies
-
-<a href="#"><img src="img/mongo.png" height="90px"></a>
-<a href="#"><img src="img/express.png" height="85px"></a>
-<a href="#"><img src="img/react.png" height="83px"></a>
-<a href="#"><img src="img/node.jpg" height="85px"></a>
-<a href="#"><img src="img/maps.png" height="80px"></a>
+ + Mongo
+ + Express
+ + React
+ + Node
 
 
 ## Implementation
